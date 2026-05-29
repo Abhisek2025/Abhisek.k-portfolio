@@ -1,25 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Abhisek Koyal | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhisek Koyal | Full Stack Developer</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <h1>Hi, I'm Abhisek Koyal</h1>
-    <h2>Full Stack Developer</h2>
 
+<header>
+    <nav>
+        <div class="logo">Abhisek.dev</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Hi, I'm <span>Abhisek Koyal</span></h1>
+        <h2>Full Stack Developer</h2>
+        <p>Building modern, responsive, and scalable web applications.</p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#" class="btn-outline">Download Resume</a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
     <p>
-        Passionate developer skilled in React.js, Node.js,
-        Express.js, MongoDB, Next.js, and Tailwind CSS.
+        Passionate Full Stack Developer with skills in React.js,
+        Next.js, Node.js, Express.js, MongoDB, JavaScript, and Tailwind CSS.
     </p>
+</section>
 
-    <h3>Projects</h3>
-    <ul>
-        <li>CRM Application</li>
-        <li>E-Commerce Website</li>
-        <li>Portfolio Website</li>
-    </ul>
+<section id="skills">
+    <h2>Skills</h2>
 
-    <h3>Contact</h3>
-    <p>Email: your-email@example.com</p>
+    <div class="skills-grid">
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>JavaScript</div>
+        <div>React.js</div>
+        <div>Next.js</div>
+        <div>Node.js</div>
+        <div>Express.js</div>
+        <div>MongoDB</div>
+        <div>Git</div>
+        <div>GitHub</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+        <div class="card">
+            <h3>CRM Application</h3>
+            <p>Customer relationship management system.</p>
+        </div>
+
+        <div class="card">
+            <h3>E-Commerce Website</h3>
+            <p>Modern online shopping platform.</p>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>Personal developer portfolio.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+
+    <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Abhisek Koyal | Full Stack Developer</p>
+
+    <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
