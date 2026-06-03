@@ -72,7 +72,7 @@ function initLoginHandler() {
     const u = document.getElementById("login-username").value.trim();
     const p = document.getElementById("login-password").value.trim();
 
-    if (u === "admin" && p === "admin123") {
+    if (u === "abhisekkoyal334@gmail.com" && p === "Alandon@2026") {
       localStorage.setItem("standalone_admin_token", "active-personal-token");
       errEl.className = "hidden";
       form.reset();
