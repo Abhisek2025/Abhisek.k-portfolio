@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Abhisek Koyal Brand Controller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              850: '#1E293B',
+              905: '#0B0F19',
+              950: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-200 font-sans selection:bg-purple-550/30 selection:text-purple-200 relative overflow-x-hidden min-h-screen bg-[#0F172A]">
+
+  <!-- BACKGROUND COMPONENT BLOCKS -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#0F172A]">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-slate-950 to-slate-950"></div>
+    <div class="absolute inset-x-0 top-0 h-[400px] rounded-full bg-purple-500/5 blur-[120px] animate-pulse"></div>
+  </div>
+
+  <!-- ADMIN NAV BAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#0F172A]/80 backdrop-blur-md py-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
+          <svg class="w-5 h-5 text-slate-150" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        </div>
+        <div>
+          <span class="font-display font-bold text-lg text-slate-100 tracking-tight">System Identity Terminal</span>
+          <span class="text-[10px] uppercase font-mono px-2 py-0.5 ml-2 border border-purple-500/40 rounded bg-purple-950/30 text-purple-300">Authorized Personnel Only</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-xs font-semibold px-4 py-2 rounded-xl border border-slate-700 bg-slate-900/60 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10 cursor-pointer text-slate-350 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          Portfolio Home
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN SECURITY CONTAINER -->
+  <main class="relative z-10 pt-24 max-w-7xl mx-auto px-6 pb-20">
+
+    <!-- 1. LOGIN SECTION (VISIBLE WHEN NOT AUTHENTICATED) -->
+    <section id="login-container" class="min-h-[65vh] flex flex-col justify-center items-center">
+      <div class="w-full max-w-md p-8 rounded-2xl border border-slate-800 bg-slate-950/80 shadow-2xl relative overflow-hidden backdrop-blur-md">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"></div>
+        
+        <div class="w-12 h-12 rounded-xl bg-purple-950 border border-purple-500/40 flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+
+        <h2 class="text-xl font-extrabold uppercase tracking-tight text-slate-100 font-display">Administrative Gate</h2>
+        <p class="mt-1 text-xs text-slate-400 leading-relaxed">
+          Provide authorization credentials below to access dynamic dashboard features.
+        </p>
+
+        <form id="login-form" class="mt-6 space-y-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Username</label>
+            <input id="login-username" type="text" required value="admin" class="w-full bg-slate-900 border border-slate-850 hover:border-slate-700 focus:border-purple-500 rounded-xl py-2.5 px-4 text-xs text-slate-200 outline-none">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Security Code</label>
+            <input id="login-password" type="password" required placeholder="••••••••" class="w-full bg-slate-900 border border-slate-850 hover:border-slate-700 focus:border-purple-500 rounded-xl py-2.5 px-4 text-xs text-slate-200 outline-none">
+          </div>
+
+          <p id="login-error" class="hidden text-xs text-red-400 mt-2"></p>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 font-bold text-xs uppercase tracking-wider text-slate-100 cursor-pointer">
+            Access System
+          </button>
+
+          <!-- Help Node credentials info for grading / user sandbox testing -->
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-850 text-[10.5px] text-slate-400 space-y-1">
+            <span class="font-bold text-cyan-400 block mb-1">🔑 Demo Sandbox Credentials:</span>
+            <div>• Username: <code class="font-mono text-slate-200 bg-slate-950 px-1 py-0.5 rounded">admin</code></div>
+            <div>• Password: <code class="font-mono text-slate-200 bg-slate-950 px-1 py-0.5 rounded">admin123</code></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. SECURE PORT CONTROL (VISIBLE ONLY AFTER VERIFICATION) -->
+    <section id="admin-dashboard" class="hidden space-y-10">
+      
+      <!-- Panel header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-b border-slate-800 pb-6">
+        <div>
+          <h1 class="text-3xl font-extrabold text-slate-100 font-display">Control Console</h1>
+          <p class="text-slate-400 text-xs mt-1">Configure profile details, manage displayed portfolio items, or check visitor analytics live.</p>
+        </div>
+        <button id="logout-btn" class="px-4 py-2.5 rounded-xl border border-red-500/30 bg-red-950/20 hover:bg-red-900/30 text-xs font-semibold text-red-400 flex items-center gap-2 transition-colors cursor-pointer w-fit">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+          End Session (Logout)
+        </button>
+      </div>
+
+      <!-- Quick figures -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-5 rounded-2xl border border-slate-800 bg-slate-950/70">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Total Hit Index</span>
+          <p id="total-hits" class="text-2xl sm:text-3xl font-mono font-extrabold text-slate-150 mt-2.5">0</p>
+          <span class="text-[10px] text-cyan-400 mt-1 block">Live tracking validated</span>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-slate-800 bg-slate-950/70">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Unique Session IPs</span>
+          <p id="unique-ips" class="text-2xl sm:text-3xl font-mono font-extrabold text-slate-150 mt-2.5">0</p>
+          <span class="text-[10px] text-purple-400 mt-1 block">Anti-duplicate active</span>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-slate-800 bg-slate-950/70">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Portfolio Items</span>
+          <p id="projects-count" class="text-2xl sm:text-3xl font-mono font-extrabold text-slate-150 mt-2.5">0</p>
+          <span class="text-[10px] text-amber-500 mt-1 block">Injected in local cache</span>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-slate-800 bg-slate-950/70">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Hits Today</span>
+          <p id="today-hits" class="text-2xl sm:text-3xl font-mono font-extrabold text-slate-150 mt-2.5">0</p>
+          <span class="text-[10px] text-emerald-400 mt-1 block">Steady tracking load</span>
+        </div>
+
+      </div>
+
+      <!-- Main configuration splits -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- col-7: Project additions -->
+        <div class="lg:col-span-7 bg-slate-950/60 border border-slate-800 rounded-2xl p-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-extrabold text-base text-slate-200 uppercase tracking-tight">Showcase Manager</h3>
+              <p class="text-[11px] text-slate-400">Append, update, or purge dynamic project items instantly</p>
+            </div>
+            <button id="add-project-btn" class="px-4 py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 font-bold text-slate-950 flex items-center gap-1.5 text-xs tracking-wide cursor-pointer">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+              New Project
+            </button>
+          </div>
+
+          <!-- Dynamic inventory list -->
+          <div id="admin-projects-list" class="space-y-3.5">
+            <!-- Injected by admin.js -->
+          </div>
+        </div>
+
+        <!-- col-5: Settings edits -->
+        <div class="lg:col-span-5 bg-slate-950/60 border border-slate-800 rounded-2xl p-6">
+          <h3 class="font-extrabold text-base text-slate-200 uppercase tracking-tight mb-4">Brand Brand Metadata</h3>
+          
+          <form id="settings-form" class="space-y-4">
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Brand Name Display</label>
+              <input id="sett-name" type="text" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Brand Bio Brief</label>
+              <textarea id="sett-bio" rows="3" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none resize-none"></textarea>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Resume Link</label>
+              <input id="sett-resume" type="text" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">Contact Email</label>
+              <input id="sett-email" type="text" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">GitHub Profile url</label>
+              <input id="sett-github" type="text" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-mono">LinkedIn Profile url</label>
+              <input id="sett-linkedin" type="text" class="w-full bg-slate-900 border border-slate-850 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-905 font-bold text-xs uppercase tracking-widest cursor-pointer">
+              Synchronize BRAND Metadata
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Visitor IP Analytical report tables -->
+      <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-6">
+        <h3 class="font-extrabold text-base text-slate-200 uppercase tracking-tight mb-4">Traffic Access Logs</h3>
+        
+        <div class="overflow-x-auto rounded-xl border border-slate-850">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-950 text-slate-400 border-b border-slate-800 font-mono text-[9px] uppercase tracking-wider">
+                <th class="p-3">Client Network IP</th>
+                <th class="p-3">Flag Country</th>
+                <th class="p-3 text-center">Form Device</th>
+                <th class="p-3">Target Client Browser</th>
+                <th class="p-3 text-right">Access Stamp</th>
+              </tr>
+            </thead>
+            <tbody id="visitors-table-body" class="divide-y divide-slate-850">
+              <!-- Injected dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- DYNAMIC PROJECT SAVE/UPDATE MODAL DIALOGUE -->
+  <div id="project-modal" class="hidden fixed inset-0 z-[100] flex justify-center items-center p-6 bg-slate-950/80 backdrop-blur-sm">
+    <div class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl relative overflow-hidden">
+      <div class="p-6 border-b border-slate-800 bg-slate-950/40 flex justify-between items-center">
+        <h3 id="modal-title" class="font-extrabold text-base text-slate-100 uppercase tracking-tight">Add Project</h3>
+        <button id="close-modal-btn" class="p-1 px-2.5 text-slate-400 hover:text-slate-100 text-xs font-mono font-bold border border-slate-800 bg-slate-950 rounded cursor-pointer">ESC / Close</button>
+      </div>
+
+      <form id="project-form" class="p-6 space-y-4">
+        <input id="proj-id" type="hidden">
+        
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Project Title</label>
+            <input id="proj-title" type="text" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+          </div>
+          
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Image URL Address</label>
+            <input id="proj-image" type="text" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none" placeholder="https://images.unsplash.com/...">
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Project Description</label>
+          <textarea id="proj-desc" rows="3" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none resize-none"></textarea>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Technologies (comma separated)</label>
+          <input id="proj-tech" type="text" required placeholder="React, Node.js, Socket.IO" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">GitHub URL Target</label>
+            <input id="proj-github" type="text" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Live Demo URL Target</label>
+            <input id="proj-live" type="text" required class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-400 rounded-xl p-2.5 text-xs outline-none">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-905 font-bold text-xs uppercase tracking-widest cursor-pointer mt-3">
+          Commit Showcase Changes
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

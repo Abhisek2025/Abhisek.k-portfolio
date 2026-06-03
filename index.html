@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhisek Koyal | Premium Full-Stack Web Developer Portfolio</title>
+  
+  <!-- Inter & Space Grotesk elegant font pairings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN Engine -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              350: '#A1ACBD',
+              850: '#1E293B',
+              905: '#0B0F19',
+              950: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-x-hidden min-h-screen bg-[#0F172A]">
+
+  <!-- BACKGROUND GRADIENT BLOCKS & PARTICLES LAYER -->
+  <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#0F172A]">
+    <!-- Radial grid overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/40 via-slate-950 to-slate-950"></div>
+    <div class="absolute inset-0 opacity-[0.03] bg-grid" style="mask-image: radial-gradient(circle, white, transparent);"></div>
+
+    <!-- Glowing Vector Spheres -->
+    <div class="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px] animate-blob-1"></div>
+    <div class="absolute top-1/2 -right-40 h-[600px] w-[600px] rounded-full bg-purple-500/10 blur-[150px] animate-blob-2"></div>
+    <div class="absolute -bottom-20 left-1/4 h-[450px] w-[450px] rounded-full bg-indigo-500/5 blur-[100px] animate-blob-3"></div>
+
+    <!-- Mouse follower interactive glow element (driven using pure client JS) -->
+    <div id="mouse-glow" class="hidden md:block absolute -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none mix-blend-screen transition-opacity duration-300 w-[500px] h-[500px]" style="background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, rgba(139,92,246,0.03) 45%, rgba(0,0,0,0) 70%);"></div>
+  </div>
+
+  <!-- HEADER NAVIGATION ROUTE -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent py-6">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+          <svg class="w-5 h-5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+        </div>
+        <div>
+          <span id="brand-name" class="font-display font-bold text-lg text-slate-100 tracking-tight">Abhisek Koyal</span>
+          <span class="hidden sm:inline-block text-[10px] uppercase font-mono px-2 py-0.5 ml-2 border border-cyan-500/40 rounded bg-cyan-950/30 text-cyan-300 tracking-wider">MERN Stack</span>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#projects" class="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#github" class="text-sm font-medium text-slate-400 hover:text-cyan-400 transition-colors">GitHub Sync</a>
+        <a href="#contact" class="text-xs tracking-wider uppercase font-bold border border-slate-700/60 rounded px-4 py-2 hover:border-cyan-500/40 hover:bg-cyan-950/20 transition-all text-slate-300 hover:text-cyan-300">Message Me</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="admin.html" class="text-xs font-semibold px-4 py-2 rounded-xl flex items-center gap-2 transition-all duration-300 border border-slate-700 bg-slate-900/60 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10 cursor-pointer text-slate-300">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          Configure (Admin Dashboard)
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="relative z-10 pt-24 max-w-7xl mx-auto px-6 overflow-hidden">
+
+    <!-- 1. HERO HOME SEGMENT -->
+    <section id="hero" class="min-h-[85vh] flex flex-col justify-center py-12 md:py-20 relative">
+      <div class="grid md:grid-cols-12 gap-11 items-center">
+        
+        <div class="md:col-span-7 flex flex-col justify-center text-left">
+          <!-- Live badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-950/30 text-cyan-300 w-fit mb-6 text-xs uppercase font-mono tracking-widest animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Currently building web applications & APIs
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold font-display tracking-tight text-slate-100 leading-tight">
+            Design. Code. <br class="hidden sm:inline">
+            <span class="bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+              Scale with Abhisek
+            </span>
+          </h1>
+
+          <!-- Typewriter Target component -->
+          <div class="h-10 mt-4 flex items-center text-lg sm:text-2xl font-mono text-cyan-400 font-bold">
+            <span id="typewriting-text" class="typing-cursor pr-1">MERN Stack Developer</span>
+          </div>
+
+          <p id="brand-bio" class="mt-6 text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">
+            Passionate Full Stack Developer specializing in MongoDB, Express.js, React.js, Node.js, JavaScript, REST APIs, and modern web technologies. I build scalable web applications, responsive websites, and interactive user experiences.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#contact" class="px-6 py-3.5 rounded-xl text-slate-905 bg-cyan-400 font-semibold hover:bg-cyan-300 transition-all duration-300 shadow-lg shadow-cyan-400/20 active:scale-95 text-sm tracking-wide flex items-center gap-2">
+              Discuss Project 
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a id="resume-link" href="#" target="_blank" class="px-6 py-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 hover:border-cyan-500 hover:text-cyan-300 text-slate-300 font-medium transition-all duration-300 flex items-center gap-2 text-sm tracking-wide backdrop-blur-sm">
+              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              Resume Link
+            </a>
+          </div>
+
+          <!-- Social link badges -->
+          <div class="mt-12 flex items-center gap-5">
+            <span class="text-xs uppercase font-semibold text-slate-500 tracking-widest font-mono">Profile sync:</span>
+            <div class="flex items-center gap-4">
+              <a id="social-github" href="https://github.com/abhisekkoyal334" target="_blank" class="p-3 rounded-lg border border-slate-800 bg-slate-900/55 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all hover:-translate-y-1 block" title="GitHub Profile">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a id="social-linkedin" href="https://linkedin.com/in/abhisek-koyal" target="_blank" class="p-3 rounded-lg border border-slate-800 bg-slate-900/55 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all hover:-translate-y-1 block" title="LinkedIn Profile">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a id="social-email" href="mailto:abhisekkoyal334@gmail.com" class="p-3 rounded-lg border border-slate-800 bg-slate-900/55 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all hover:-translate-y-1 block" title="Send Email Direct">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-9 11h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Graphic Widget representation -->
+        <div class="md:col-span-5 flex justify-center relative">
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-600/20 rounded-full blur-3xl"></div>
+            
+            <div class="absolute inset-2 border border-dashed border-cyan-500/30 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+            <div class="absolute inset-6 border border-dashed border-purple-500/10 rounded-full animate-spin" style="animation-duration: 35s; animation-direction: reverse;"></div>
+
+            <div class="absolute inset-10 bg-slate-950/90 rounded-full border-2 border-slate-800/50 overflow-hidden shadow-2xl flex items-center justify-center p-3">
+              <div class="w-full h-full rounded-full bg-slate-905 overflow-hidden flex flex-col justify-center items-center text-center p-6 relative">
+                <svg class="w-12 h-12 text-cyan-400 mb-2.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="font-mono text-sm text-cyan-300 font-bold">&lt;Abhisek /&gt;</span>
+                <span class="text-slate-500 text-[10px] uppercase font-bold tracking-widest mt-1">MERN Developer</span>
+
+                <div class="absolute bottom-4 font-mono text-[9px] text-slate-600 space-y-1 select-none pointer-events-none opacity-40">
+                  <div>const init = () =&gt; {</div>
+                  <div class="pl-2">console.log("Welcome visitor");</div>
+                  <div>};</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating visual tags -->
+            <div class="absolute top-8 right-0 bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl p-3 shadow-xl">
+              <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-xs font-mono font-bold text-slate-200">React.js component</span>
+              </div>
+            </div>
+
+            <div class="absolute bottom-10 -left-4 bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl p-3 shadow-xl">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                <span class="text-xs font-mono font-bold text-slate-200">Express Node API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE SESSION METRICS COUNT ROW -->
+    <section class="py-6 border-y border-slate-800/40 bg-slate-900/10 backdrop-blur-sm -mx-6 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-cyan-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <div>
+            <h4 class="text-xs uppercase font-mono font-extrabold tracking-wider text-slate-400">Visitor Metrics</h4>
+            <p class="text-[10px] text-slate-500">Live dynamic sessions updated inside browser cache store</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-8 md:gap-14">
+          <div class="text-center">
+            <div id="metric-total" class="text-2xl sm:text-3xl font-extrabold font-mono text-cyan-400 tabular-nums">0</div>
+            <div class="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Total Visitors</div>
+          </div>
+          <div class="text-center">
+            <div id="metric-unique" class="text-2xl sm:text-3xl font-extrabold font-mono text-purple-400 tabular-nums">0</div>
+            <div class="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Unique IPs</div>
+          </div>
+          <div class="text-center">
+            <div id="metric-today" class="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-400 tabular-nums">0</div>
+            <div class="text-[10px] uppercase font-semibold text-slate-500 tracking-wider">Today Hits</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT COMPONENT -->
+    <section id="about" class="py-20 md:py-28">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono mb-2">My Background</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-100 font-display">Engineering Responsive Experiences</h2>
+        <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+          Brief summaries of my experience highlights, education paths, and professional career goals.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-cyan-500/50 hover:bg-slate-900/60 transition-all duration-300 relative overflow-hidden group">
+          <svg class="w-8 h-8 text-cyan-400 mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <h3 class="text-lg font-bold text-slate-200">2+ Years Active</h3>
+          <p class="mt-2 text-xs text-slate-400 leading-relaxed">
+            Building intuitive user interfaces, secure rest service controllers, and high-efficiency database connections.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-purple-500/50 hover:bg-slate-900/60 transition-all duration-300 relative overflow-hidden group">
+          <svg class="w-8 h-8 text-purple-400 mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <h3 class="text-lg font-bold text-slate-200">Scale First</h3>
+          <p class="mt-2 text-xs text-slate-400 leading-relaxed">
+            Striving to build dry code systems, modular visual grids, and solid endpoint filters to secure app flow.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-cyan-500/50 hover:bg-slate-900/60 transition-all duration-300 relative overflow-hidden group">
+          <svg class="w-8 h-8 text-cyan-400 mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-5.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+          <h3 class="text-lg font-bold text-slate-200">B.Tech CS</h3>
+          <p class="mt-2 text-xs text-slate-400 leading-relaxed">
+            Specialized engineering curriculum emphasizing network security schemes, object models, and DB structures.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-purple-500/50 hover:bg-slate-900/60 transition-all duration-300 relative overflow-hidden group">
+          <svg class="w-8 h-8 text-purple-400 mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <h3 class="text-lg font-bold text-slate-200">High Speed SaaS</h3>
+          <p class="mt-2 text-xs text-slate-400 leading-relaxed">
+            Interested in real-time document sync, customizable visual analytics matrices, and instant push sockets.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. TECHNICAL SKILLS SET -->
+    <section id="skills" class="py-20 border-t border-slate-900">
+      <div class="grid md:grid-cols-12 gap-11 items-start">
+        
+        <div class="md:col-span-4 md:sticky md:top-28">
+          <span class="text-xs font-bold uppercase tracking-widest text-purple-400 font-mono mb-2 block">Technical Depth</span>
+          <h2 class="text-3xl font-bold text-slate-100 font-display">Our Curated Stack</h2>
+          <p class="mt-4 text-slate-400 text-sm leading-relaxed">
+            Crafting rich modern web applications requires precision across both backend API pathways and frontend layout components.
+          </p>
+          <div class="mt-8 p-5 rounded-2xl border border-slate-800/60 bg-slate-900/20 backdrop-blur-sm">
+            <span class="text-xs font-bold font-mono text-cyan-400 block mb-2">Core Competency:</span>
+            <div class="space-y-2 text-xs text-slate-400">
+              <div class="flex items-center gap-2">✓ Beautiful client responsive layouts</div>
+              <div class="flex items-center gap-2">✓ Optimized REST payloads</div>
+              <div class="flex items-center gap-2">✓ NoSQL Document collections structures</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-8 grid sm:grid-cols-2 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+            <div class="flex items-center gap-2 mb-6">
+              <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <h3 class="font-bold text-base text-slate-100 font-display">Frontend Technologies</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>React.js Framework</span>
+                  <span class="text-cyan-400">95%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-cyan-400 h-full rounded-full" style="width: 95%;"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>Tailwind Utility Sheets</span>
+                  <span class="text-cyan-400">95%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-cyan-400 h-full rounded-full" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>Vanilla JS (ES6+)</span>
+                  <span class="text-cyan-400">90%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-cyan-400 h-full rounded-full" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>CSS Layout Structure</span>
+                  <span class="text-cyan-400">90%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-cyan-400 h-full rounded-full" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-purple-500/40 transition-colors">
+            <div class="flex items-center gap-2 mb-6">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+              <h3 class="font-bold text-base text-slate-100 font-display">Back-End & Databases</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>Node.js Web App Platform</span>
+                  <span class="text-purple-400">88%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-purple-500 h-full rounded-full" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>Express.js Routing Engines</span>
+                  <span class="text-purple-400">90%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-purple-500 h-full rounded-full" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>MongoDB Document Collections</span>
+                  <span class="text-purple-400">85%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-purple-500 h-full rounded-full" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center text-xs text-slate-300 font-mono mb-1.5">
+                  <span>REST Service Contracts</span>
+                  <span class="text-purple-400">92%</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                  <div class="bg-purple-500 h-full rounded-full" style="width: 92%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-slate-900/30 border border-slate-800/80 hover:border-cyan-500/40 transition-colors sm:col-span-2">
+            <h3 class="font-bold text-base text-slate-100 mb-6 font-display flex items-center gap-2">
+              <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+              Utility Services & Standard Toolings
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">Git Versioning</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">GitHub Workflows</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">VS Code Essentials</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">Postman APIs</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">NPM Packages</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">Vite Bundles</span>
+              <span class="px-3.5 py-1.5 rounded-lg border border-slate-800 bg-slate-950/70 text-slate-300 text-xs font-mono">JSON Models</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SELECTED PROJECTS DIRECT CARD DOCKS -->
+    <section id="projects" class="py-20 border-t border-slate-900">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono mb-2 block">My Portfolios</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-100 font-display">Working Showcase Cards</h2>
+        <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+          Open the admin.html file locally or click Configuration above to dynamically append new entries directly into this view database!
+        </p>
+      </div>
+
+      <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically by script.js -->
+        <div class="col-span-full text-center py-10 text-slate-500 text-xs italic">Loading projects list...</div>
+      </div>
+    </section>
+
+    <!-- 5. GITHUB PROFILE API METRIC INTEGRATION -->
+    <section id="github" class="py-20 border-t border-slate-900">
+      <div class="p-8 sm:p-11 rounded-3xl border border-slate-800/80 bg-slate-900/10 backdrop-blur-md relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="grid lg:grid-cols-12 gap-11 items-center">
+          
+          <div class="lg:col-span-5">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-950/20 text-purple-300 text-[10px] uppercase font-mono tracking-wider mb-4">
+              ✓ API live connection
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight font-display">GitHub Active Sync</h2>
+            <p class="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Target any live developer handle using our query sync connector. Instantly view real public repositories and star badges fetched on the fly.
+            </p>
+
+            <form id="git-search-form" class="mt-6 flex gap-2">
+              <input id="git-search-input" type="text" value="abhisekkoyal334" class="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-cyan-500 rounded-xl py-2.5 px-4 text-xs text-slate-200 outline-none" placeholder="GitHub username...">
+              <button type="submit" class="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 font-semibold text-xs transition-colors cursor-pointer">Sync</button>
+            </form>
+          </div>
+
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Rendered beautifully via javascript -->
+            <div id="git-profile-box" class="flex items-center gap-4 p-4 rounded-xl border border-slate-800 bg-slate-950/60">
+              <div class="w-12 h-12 rounded-xl bg-slate-800 animate-pulse"></div>
+              <div class="flex-1 min-w-0 space-y-2">
+                <div class="w-24 h-4 bg-slate-800 rounded animate-pulse"></div>
+                <div class="w-48 h-3 bg-slate-800 rounded animate-pulse"></div>
+              </div>
+            </div>
+
+            <div id="git-repos-box" class="grid sm:grid-cols-2 gap-4">
+              <!-- Grid blocks injected dynamically -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT MAIL INTERFACE -->
+    <section id="contact" class="py-20 border-t border-slate-900">
+      <div class="grid lg:grid-cols-12 gap-11 items-center">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono block">Get In Touch</span>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-tight font-display">Let's craft the next digital solution.</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Have an exciting product concept, an open full-time position, or a custom consultancy requirement? Fill out the glassmorphism messenger to get details synchronized.
+          </p>
+
+          <div class="space-y-4 pt-4">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg border border-slate-850 bg-slate-955/50 text-cyan-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-9 11h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-xs font-mono uppercase font-bold tracking-wide text-slate-400">Electronic Mailbox Address</h4>
+                <p id="contact-brand-email" class="text-slate-200 text-sm font-semibold mt-0.5">abhisekkoyal334@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg border border-slate-850 bg-slate-955/50 text-purple-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-xs font-mono uppercase font-bold tracking-wide text-slate-400">Geographic Headquarters</h4>
+                <p class="text-slate-200 text-sm font-semibold mt-0.5">West Bengal, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="p-6 sm:p-10 rounded-2xl border border-slate-800/80 bg-slate-950/45 shadow-2xl relative overflow-hidden backdrop-blur-md">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-600"></div>
+            
+            <h3 class="text-lg font-bold text-slate-100 uppercase tracking-tight mb-6 font-display">Send Secure Message</h3>
+
+            <form id="contact-form" class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="space-y-1.5">
+                  <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Your Name</label>
+                  <input id="contact-name" type="text" required placeholder="Abhisek Koyal" class="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-cyan-400 rounded-xl p-3 text-xs text-slate-200 outline-none">
+                </div>
+                
+                <div class="space-y-1.5">
+                  <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Your Email Address</label>
+                  <input id="contact-email" type="email" required placeholder="abhisek@example.com" class="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-cyan-400 rounded-xl p-3 text-xs text-slate-200 outline-none">
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-mono block">Message Payload</label>
+                <textarea id="contact-msg" rows="4" required placeholder="Describe your collaboration requirements or inquiries..." class="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-cyan-400 rounded-xl p-3 text-xs text-slate-200 outline-none resize-none"></textarea>
+              </div>
+
+              <div id="contact-status-box" class="hidden p-4 rounded-xl border text-xs leading-relaxed"></div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl text-slate-905 bg-cyan-400 font-bold hover:bg-cyan-300 transition-all duration-300 flex justify-center items-center gap-2 text-xs tracking-wider uppercase cursor-pointer">
+                Submit Proposals Package
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER LINK SECTOR -->
+    <footer class="py-12 border-t border-slate-900 mt-16 text-center text-xs text-slate-500">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+        <span class="font-bold text-slate-350 tracking-wide uppercase font-mono">&lt; Abhisek Koyal /&gt;</span>
+        <div class="flex items-center gap-6">
+          <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+          <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+          <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+          <a href="#github" class="hover:text-cyan-400 transition-colors">GitHub Sync</a>
+        </div>
+      </div>
+      
+      <p class="text-[11px] leading-relaxed">
+        © <span id="current-year">2026</span> Abhisek Koyal. Crafted & optimized using Tailwind CSS & static LocalCache stores.
+      </p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
