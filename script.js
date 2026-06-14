@@ -11,7 +11,7 @@ const CACHE_VISITORS_KEY = "abhisekkoyal_visitors_data";
 const defaultSettings = {
   name: "Abhisek Koyal",
   bio: "Passionate Full Stack Developer specializing in MongoDB, Express.js, React.js, Node.js, JavaScript, REST APIs, and modern web technologies. I build scalable web applications, responsive websites, and interactive user experiences.",
-  resumeLink: "https://example.com/abhisek_resume.pdf",
+  resumeLink: "https://github.com/Abhisek2025/My-CV.git",
   socials: {
     github: "https://github.com/abhisekkoyal334",
     linkedin: "https://linkedin.com/in/abhisek-koyal",
@@ -60,9 +60,22 @@ const defaultVisitors = {
 };
 
 // State caches variables
-let currentSettings = JSON.parse(localStorage.getItem(CACHE_SETTINGS_KEY)) || defaultSettings;
-let currentProjects = JSON.parse(localStorage.getItem(CACHE_PROJECTS_KEY)) || defaultProjects;
-let currentVisitors = JSON.parse(localStorage.getItem(CACHE_VISITORS_KEY)) || defaultVisitors;
+// Safe loader for localStorage JSON values
+function safeLoad(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    const parsed = JSON.parse(raw);
+    return parsed == null ? fallback : parsed;
+  } catch (err) {
+    console.warn(`safeLoad: failed to parse ${key}`, err);
+    return fallback;
+  }
+}
+
+let currentSettings = safeLoad(CACHE_SETTINGS_KEY, defaultSettings);
+let currentProjects = safeLoad(CACHE_PROJECTS_KEY, defaultProjects);
+let currentVisitors = safeLoad(CACHE_VISITORS_KEY, defaultVisitors);
 
 // Core initializer
 document.addEventListener("DOMContentLoaded", () => {
