@@ -22,30 +22,66 @@ const defaultSettings = {
 const defaultProjects = [
   {
     id: "p-1",
-    title: "DevSync Collab Workspace",
-    description: "A real-time collaborative workspace platform featuring document editors, collaborative whiteboard canvas, and instant chat synchronizers.",
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "Tailwind CSS"],
-    githubUrl: "https://github.com/abhisekkoyal334/devsync-collab",
-    liveUrl: "https://devsync-collab.demo.app",
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800"
+    title: "Book Hub",
+    description: "MERN Stack bookstore application with authentication, CRUD operations and responsive UI.",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    githubUrl: "https://github.com/Abhisek2025/BOOKSTORE-.git",
+    liveUrl: "https://mybookhub-13zh.onrender.com",
+    imageUrl: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da"
   },
   {
     id: "p-2",
-    title: "Apex Analytics Dashboard",
-    description: "High-fidelity responsive business intelligence dashboard. Features customizable layout widgets, cross-filtered chart integrations, and beautiful visual animation routines.",
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Recharts", "Tailwind CSS"],
-    githubUrl: "https://github.com/abhisekkoyal334/apex-dashboard",
-    liveUrl: "https://apex-analytics.demo.app",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+    title: "Blood Bank Management System",
+    description: "Full stack blood bank management platform for donors, hospitals and organizations.",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    githubUrl: "https://github.com/Abhisek2025/e-bloodbank.git",
+    liveUrl: "https://bbms-client.onrender.com",
+    imageUrl: "https://images.unsplash.com/photo-1615461066841-6116e61058f4"
   },
   {
     id: "p-3",
-    title: "Zenith Headless E-Commerce",
-    description: "Extremely fast, modern online storefront featuring optimized listing animations, intuitive cart state sync, customized search filters, and smooth payment proxy flows.",
-    technologies: ["React.js", "Redux", "Node.js", "Express.js", "MongoDB", "Stripe API", "Tailwind CSS"],
-    githubUrl: "https://github.com/abhisekkoyal334/zenith-commerce",
-    liveUrl: "https://zenith-commerce.demo.app",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
+    title: "Developer Portfolio",
+    description: "Personal portfolio website showcasing projects, skills and experience.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/Abhisek2025/My-CV.git",
+    liveUrl: "https://my-portfolio-7gzc.onrender.com",
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+  },
+  {
+    id: "p-4",
+    title: "Payal Dutta Portfolio",
+    description: "Professional portfolio website developed for a client.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "#",
+    liveUrl: "https://payaldutta1.netlify.app/",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+  },
+  {
+    id: "p-5",
+    title: "Manasa Electricals",
+    description: "Business website developed for a local electrical products business.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "#",
+    liveUrl: "https://maamanasaelectrical.netlify.app/index.html",
+    imageUrl: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4"
+  },
+  {
+    id: "p-6",
+    title: "Animated Login Page",
+    description: "Creative animated login and signup page with modern UI.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "https://github.com/Abhisek2025/Animated-Login-Page.git",
+    liveUrl: "https://abhisekloginpage.netlify.app/",
+    imageUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c"
+  },
+  {
+    id: "p-7",
+    title: "Flipkart Clone",
+    description: "E-commerce website inspired by Flipkart with product listings and shopping features.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    githubUrl: "#",
+    liveUrl: "https://abhisekshopify.netlify.app/",
+    imageUrl: "https://images.unsplash.com/photo-1472851294608-062f824d29cc"
   }
 ];
 
